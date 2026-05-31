@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'core/system_design/theme/notah_theme.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Notah',
-      theme: ThemeData(
-        fontFamily: 'Manrope',
-      ),
+      themeMode: ThemeMode.light,
+      theme: NotahTheme.light(),
+      darkTheme: NotahTheme.dark(),
       home: const MyHomePage(title: 'Notah'),
     );
   }
