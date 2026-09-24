@@ -5,5 +5,6 @@ extension ThemeContextExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   ColorScheme get colorScheme => theme.colorScheme;
-  NotahColorScheme get colors => theme.extension<NotahColorScheme>()!;
+  TextTheme get textTheme => theme.textTheme;
+  NotahColorScheme get notahColorScheme => theme.extension<NotahColorScheme>()!;
 }
