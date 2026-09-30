@@ -3,22 +3,27 @@ import 'notah_color_palette.dart';
 
 @immutable
 class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
+  final Color primary ;
+  final Color secondary ;
+  final Color tertiary ;
+
+  final Color info ;
   final Color success;
   final Color warning;
   final Color danger;
   // ============== Text ==============
-  final Color title;
-  final Color body;
-  final Color hint;
+  final Color textTitle;
+  final Color textHint;
   final Color textPrimary;
   final Color textSecondary;
   final Color textBody;
   final Color textWarning;
-
+  final Color textDisabled;
 
   // ============== Border & Stroke ==============
   final Color stroke;
   final Color disabled;
+  final Color border;
 
   // ============== Semantic: Error ==============
   final Color error;
@@ -33,17 +38,22 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
   final Color statusBarColor;
 
   const NotahColorScheme._({
+    required this.primary,
+    required this.secondary,
+    required this.tertiary,
+    required this.info,
     required this.success,
     required this.warning,
     required this.danger,
-    required this.title,
-    required this.body,
-    required this.hint,
+    required this.textTitle,
+    required this.textHint,
     required this.textPrimary,
     required this.textSecondary,
     required this.textBody,
     required this.textWarning,
+    required this.textDisabled,
     required this.stroke,
+    required this.border,
     required this.disabled,
     required this.error,
     required this.onError,
@@ -54,17 +64,22 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
   });
 
   static const NotahColorScheme dark = NotahColorScheme._(
+    primary: NotahColorPalette.primary,
+    secondary: NotahColorPalette.secondary,
+    tertiary: NotahColorPalette.tertiary,
+    info: NotahColorPalette.info,
     success: NotahColorPalette.success,
     warning: NotahColorPalette.warning,
     danger: NotahColorPalette.danger,
-    title: NotahColorPalette.gray900,
-    body: NotahColorPalette.gray600,
-    hint: NotahColorPalette.gray400,
+    textTitle: NotahColorPalette.gray900,
+    textHint: NotahColorPalette.gray400,
+    textDisabled: NotahColorPalette.gray600,
     textPrimary: NotahColorPalette.offWhite,
     textSecondary: NotahColorPalette.textSecondary,
     textBody: NotahColorPalette.textBody,
     textWarning: NotahColorPalette.textWarning,
     stroke: NotahColorPalette.gray200,
+    border: NotahColorPalette.blue600,
     disabled: NotahColorPalette.gray200,
     error: NotahColorPalette.danger,
     onError: NotahColorPalette.danger,
@@ -74,17 +89,22 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
     statusBarColor: NotahColorPalette.statusBarColor,
   );
   static const NotahColorScheme light = NotahColorScheme._(
+    primary: NotahColorPalette.primary,
+    secondary: NotahColorPalette.secondary,
+    tertiary: NotahColorPalette.tertiary,
+    info: NotahColorPalette.info,
     success: NotahColorPalette.success,
     warning: NotahColorPalette.warning,
     danger: NotahColorPalette.danger,
-    title: NotahColorPalette.gray900,
-    body: NotahColorPalette.gray600,
-    hint: NotahColorPalette.gray400,
+    textTitle: NotahColorPalette.gray900,
+    textDisabled: NotahColorPalette.gray600,
+    textHint: NotahColorPalette.gray400,
     textPrimary: NotahColorPalette.textPrimary,
     textSecondary: NotahColorPalette.textSecondary,
     textBody: NotahColorPalette.textBody,
     textWarning: NotahColorPalette.textWarning,
     stroke: NotahColorPalette.gray200,
+    border: NotahColorPalette.blue600,
     disabled: NotahColorPalette.gray200,
     error: NotahColorPalette.danger,
     onError: NotahColorPalette.danger,
@@ -96,17 +116,22 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
 
   @override
   ThemeExtension<NotahColorScheme> copyWith({
+    Color? primary,
+    Color? secondary,
+    Color? tertiary,
+    Color? info,
     Color? success,
     Color? warning,
     Color? danger,
-    Color? title,
-    Color? body,
-    Color? hint,
+    Color? textTitle,
+    Color? textBody,
+    Color? textHint,
     Color? textPrimary,
     Color? textSecondary,
-    Color? textBody,
     Color? textWarning,
+    Color? textDisabled,
     Color? stroke,
+    Color? border,
     Color? disabled,
     Color? error,
     Color? onError,
@@ -116,17 +141,22 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
     Color? statusBarColor,
   }) {
     return NotahColorScheme._(
+      primary: primary ?? this.primary,
+      secondary: secondary ?? this.secondary,
+      tertiary: tertiary ?? this.tertiary,
+      info: info ?? this.info,
       success: success ?? this.success,
       warning: warning ?? this.warning,
       danger: danger ?? this.danger,
-      title: title ?? this.title,
-      body: body ?? this.body,
-      hint: hint ?? this.hint,
+      textTitle: textTitle ?? this.textTitle,
+      textHint: textHint ?? this.textHint,
+      textDisabled: textDisabled ?? this.textDisabled,
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
       textBody: textBody ?? this.textBody,
       textWarning: textWarning ?? this.textWarning,
       stroke: stroke ?? this.stroke,
+      border: border ?? this.border,
       disabled: disabled ?? this.disabled,
       error: error ?? this.error,
       onError: onError ?? this.onError,
@@ -146,14 +176,15 @@ class NotahColorScheme extends ThemeExtension<NotahColorScheme> {
       success: Color.lerp(success, other.success, t),
       warning: Color.lerp(warning, other.warning, t),
       danger: Color.lerp(danger, other.danger, t),
-      title: Color.lerp(title, other.title, t),
-      body: Color.lerp(body, other.body, t),
-      hint: Color.lerp(hint, other.hint, t),
+      textTitle: Color.lerp(textTitle, other.textTitle, t),
+      textDisabled: Color.lerp(textDisabled, other.textDisabled, t),
+      textHint: Color.lerp(textHint, other.textHint, t),
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t),
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t),
       textBody: Color.lerp(textBody, other.textBody, t),
       textWarning: Color.lerp(textWarning, other.textWarning, t),
       stroke: Color.lerp(stroke, other.stroke, t),
+      border: Color.lerp(border, other.border, t),
       disabled: Color.lerp(disabled, other.disabled, t),
       error: Color.lerp(error, other.error, t),
       onError: Color.lerp(onError, other.onError, t),

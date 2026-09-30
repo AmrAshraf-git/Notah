@@ -125,7 +125,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.notahColorScheme;
+    final colors = context.notahColorTheme;
     final effectiveBackgroundColor = backgroundColor ?? context.colorScheme.surface;
     final effectiveForegroundColor = foregroundColor ?? colors.textPrimary;
 
@@ -164,7 +164,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
         style: IconButton.styleFrom(
-          backgroundColor: leadingBackgroundColor ?? context.notahColorScheme.textPrimary,
+          backgroundColor: leadingBackgroundColor ?? context.notahColorTheme.textPrimary,
           shape: const CircleBorder(),
           padding: const EdgeInsets.all(8),
         ),
@@ -255,14 +255,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       _buildActionButton(
         icon: Icons.message_rounded,
         onPressed: onChatPressed,
-        backgroundColor: actionBackgroundColor ?? context.notahColorScheme.cardBackground,
+        backgroundColor: actionBackgroundColor ?? context.notahColorTheme.cardBackground,
         iconColor: actionIconColor ?? context.colorScheme.primary,
       ),
       const SizedBox(width: 8),
       _buildActionButton(
         icon: Icons.notifications_rounded,
         onPressed: onBellPressed,
-        backgroundColor: context.notahColorScheme.cardBackground,
+        backgroundColor: context.notahColorTheme.cardBackground,
         iconColor: context.colorScheme.primary,
       ),
     ];
